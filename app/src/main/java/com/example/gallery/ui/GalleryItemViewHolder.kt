@@ -1,6 +1,5 @@
 package com.example.gallery.ui
 
-import android.graphics.Bitmap
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,7 +17,7 @@ class GalleryItemViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     ) {
         val binding = ItemGalleryBinding.bind(itemView)
         binding.root.setOnClickListener { onClickItem(item) }
-        binding.imageView.setImageBitmap(item.thumbnailBitmap)
+        binding.imageView.setImageURI(item.contentUri)
         binding.selectedView.isVisible = item.isSelected
     }
 
@@ -26,6 +25,5 @@ class GalleryItemViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         val id: Long,
         val contentUri: Uri,
         val isSelected: Boolean,
-        val thumbnailBitmap: Bitmap,
     )
 }
